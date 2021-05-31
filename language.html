@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://restcountries.eu/rest/v2/alpha/pt");
+        xhr.send();
+        xhr.addEventListener("readystatechange", function () {
+            if (xhr.readyState == 4) {
+                data = JSON.parse(xhr.response);
+                console.log("Using XMLHttpRequest:")
+                language = data.languages[0].iso639_1;
+                xhrLang = new XMLHttpRequest();
+                xhrLang.open("GET", "https://restcountries.eu/rest/v2/lang/" + language);
+                xhrLang.send();
+                xhrLang.addEventListener("readystatechange", function () {
+                    if (xhrLang.readyState == 4) {
+                        countries = JSON.parse(xhrLang.response);
+                        for (let i = 0; i < countries.length; i++) {
+                            console.log("   " + countries[i].name);
+                        }
+                    }
+                });
+            }
+        });
+
+        fetch("https://restcountries.eu/rest/v2/alpha/pt")
+        .then(response => response.json())
+        .then(data => {
+            return fetch("https://restcountries.eu/rest/v2/lang/" + data.languages[0].iso639_1);
+        })
+        .then(response => response.json())
+        .then(countries => {
+            console.log("Using fetch:")
+            for (let i = 0; i < countries.length; i++) {
+                console.log("   " + countries[i].name);
+            }
+        });
+    </script>
+</body>
+</html>

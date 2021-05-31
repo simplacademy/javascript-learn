@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script src="category.js"></script>
+    <script src="vendor.js"></script>
+    <script src="product.js"></script>
+    <script>
+        var books = new Category(1, "BO", "Books");
+        var electronics = new Category(2, "EL", "Electronics");
+        var apparels = new Category(3, "AP", "Apparels");
+        var households = new Category(4, "HI", "Household Items");
+
+        var star = new Vendor(1, "Star Enterprise", 7834987234);
+        var cloud = new Vendor(2, "Cloudtail Retail Ltd", 8798776766);
+
+        var potter = new Product(1, "Harry Potter and the Half-Blood Prince", 3, books, [star, cloud]);
+        var demons = new Product(2, "Angels and Demons", 2.5, books, [star]);
+        var tv = new Product(3, "Panasonic 4K Ultra HD", 599.99, electronics, [cloud]);
+        var mobile = new Product(4, "Samsung Galaxy", 69.99, electronics, [cloud]);
+        var shoe = new Product(5, "M-Rock Running Shoes", 11.85, apparels, [star, cloud]);
+        var bag = new Product(6, "Kristo Leather Bags", 5.25, apparels, [star]);
+        var chair = new Product(7, "KV Mesh Back Revolving Chair", 22.75, households, [cloud]);
+        var bookshelf = new Product(8, "Turntop Wooden Bookshelf", 32.99, households, [star, cloud]);
+
+        var products = [potter, demons, tv, mobile, shoe, bag, chair, bookshelf];
+        for (var i = 0; i < products.length; i++) {
+            products[i].display();
+        }
+    </script>
+</body>
+</html>

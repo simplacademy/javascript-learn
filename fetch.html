@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            fetch("https://restcountries.eu/rest/v2/name/united")
+                .then(response => response.json())
+                .then(result => console.log(result));
+        </script>
+    </body>
+</html>

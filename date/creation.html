@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        // Date is a built-in object
+        // Date stores both date and time
+        let now = new Date();
+        console.log(now);
+
+        print(now);
+        console.log("\n\n");
+
+        // 22 March 2021 21:45:17 396ms
+        print(new Date('2021-03-22T21:45:17.396Z'));
+        print(new Date('2021-03-22T21:45:17.396+0530'));
+
+        console.log("\n\n");
+        //             Y     M  D   H   Mi  S   Ms
+        print(new Date(2021, 2, 22, 21, 45, 17, 396));
+        print(new Date(2021, 2, 22, 21, 45, 17));
+        print(new Date(2021, 2, 22, 21, 45));
+        print(new Date(2021, 2, 22, 21));
+        print(new Date(2021, 2, 22));
+        print(new Date(2021, 2));
+
+        console.log("\n\n");
+        // Timestamp - Number of milliseconds from 01 Jan 1970.
+        print(new Date(0)); // Timestamp in milliseconds.
+
+        // 24hrs x 60min x 60sec x 1000ms = 86,400,000ms
+        print(new Date(86_400_000));
+        print(new Date(-86_400_000));
+
+        console.log(new Date().getTime());
+        
+        // Sep 27, 2021, 10:07:20 AM GMT+5:30 163ms
+        function print(date) {
+            let options = {
+                year: "numeric",
+                month: "short",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                timeZoneName: "short",
+            };
+            console.log(date.toLocaleString("en-US", options) + 
+                " " + date.getMilliseconds() + "ms");
+        }
+
+    </script>
+</body>
+</html>

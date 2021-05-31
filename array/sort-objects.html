@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        var employees = [
+            { id: 3, name: "Elliott" },
+            { id: 2, name: "Sam" },
+            { id: 4, name: "John" },
+            { id: 1, name: "John" },
+        ];
+
+        employees.sort((a, b) => a.id - b.id);
+        displayEmployees(employees);
+
+        employees.sort((a, b) => a.name > b.name ? 1 : -1);
+        displayEmployees(employees);
+
+        function displayEmployees(employees) {
+            console.log("\n\n");
+            for (let employee of employees) {
+                console.log(employee);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        var link1 = "https://en.wikipedia.org/wiki/Main_Page";
+        var link2 = "http://developer.mozilla.org/docs/Web/JavaScript";
+
+        console.log(link1);
+        console.log("Domain Name: " + getDomain(link1));
+        console.log(link2);
+        console.log("Domain Name: " + getDomain(link2));
+        link1.substring()
+        
+        function getDomain(link) {
+            var startIndex = link.indexOf("://");
+            var endIndex = link.indexOf("/", startIndex + 3);
+            return link.substring(startIndex + 3, endIndex);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * { box-sizing: border-box }
+            body { font-style: italic }
+            .container { display: flex; width: 80%; flex-wrap: wrap; margin: auto }
+            .card { display: flex; border: 0.1rem solid #EEE; width: 49% }
+            .lm { margin-left: 0.5rem }
+            .bm { margin-bottom: 0.5rem }
+            .rm { margin-right: 0.5rem }
+            .flag { width: 9rem }
+            .name { font-size: 1.2rem }
+            .capital { color: green; font-size: 0.8rem; font-weight: bold }
+            .languages { color: blue; font-size: 0.8rem }
+            input { width: 100%; padding: 0.75rem; border: 0.1rem solid #DDD; outline: 0 }
+            .error { font-size: small; color: red }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Find Countries</h2>
+            <input type="text" class="bm" id="search"
+                placeholder="Enter country name (minimum 2 characters)">
+            <div class="error bm" id="error"></div>
+        </div>
+        <div class="container" id="container">
+            <!-- <div class="card rm bm">
+                <img class="flag" src="https://restcountries.eu/data/abw.svg">
+                <div>
+                    <div class="name lm">United Arab Emirates</div>
+                    <div class="capital lm">Abu Dhabi</div>
+                    <div class="languages lm bm">Arabic</div>
+                </div>
+            </div> -->
+        </div>
+        <script>
+            let search = document.getElementById("search");
+            let container = document.getElementById("container");
+            let error = document.getElementById("error");
+            search.addEventListener("keyup", function() {
+                container.innerText = "";
+                error.innerText = "";
+                console.log(search.value);
+                if (search.value.length > 1) {
+                    let endPoint = "https://restcountries.eu/rest/v2/name/" + search.value;
+                    let xhr = new XMLHttpRequest();
+                    xhr.addEventListener("readystatechange", function () {
+                        if (xhr.readyState == 4) {
+                            let data = JSON.parse(xhr.response);
+                            if (xhr.status == 404 && data.message == "Not Found") {
+                                error.innerText = "No countries found";
+                                return;
+                            }
+                            let countries = "";
+                            for (let country of data) {
+                                let names = country.languages.reduce((all, lang) => all + lang.name + " | ", "");
+                                countries += 
+                                    `<div class="card rm bm">
+                                        <img class="flag" src="${country.flag}">
+                                        <div>
+                                            <div class="name lm">${country.name}</div>
+                                            <div class="capital lm">${country.capital}</div>
+                                            <div class="languages lm bm">${names}</div>
+                                        </div>
+                                    </div>`;
+                                /* countries += '<div class="card rm bm">';
+                                countries += '    <img class="flag" src="' + country.flag + '">';
+                                countries += '    <div>';
+                                countries += '        <div class="name lm">' + country.name + '</div>';
+                                countries += '        <div class="capital lm">' + country.capital + '</div>';
+                                let names = country.languages.reduce((all, lang) => all + lang.name + " | ", "");
+                                countries += '        <div class="languages lm bm">' + names + '</div>';
+                                countries += '    </div>';
+                                countries += '</div>'; */
+                            }
+                            container.innerHTML = countries;
+                        }
+                    });
+                    xhr.open("POST", endPoint);
+                    xhr.send('{"id":1,"name":"John"}');
+                }
+            });
+        </script>
+    </body>
+</html>

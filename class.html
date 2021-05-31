@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <!-- <script src="js/gender.js"></script>
+    <script src="js/passenger.js"></script> -->
+    <script type="module">
+        import { Gender } from './js/gender.js';
+        import { Passenger } from './js/passenger.js';
+
+        var male = new Gender("M", "Male");
+        var female = new Gender("F", "Female");
+
+        var passenger1 = new Passenger('John', 'Smith', male, '15-Sep-1985', 35, false);
+        var passenger2 = new Passenger('Mary', 'Smith', female, '27-Mar-1988', 32, true);
+        var passenger3 = new Passenger('Joe', 'Smith', male, '07-Apr-2014', 6, false);
+        var passenger4 = new Passenger('Angela', 'Smith', female, '15-Sep-1985', 1, false);
+        
+        var passengers = [passenger1, passenger2, passenger3, passenger4];
+        
+        console.log(passengers[0].getFullName());
+        console.log(passengers[1].getFullName());
+        console.log(passengers[2].getFullName());
+        console.log(passengers[3].getFullName());
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+        html, body { 
+            margin : 0; 
+            height: 100% 
+        }
+        .nav { 
+            display: flex;
+            background-color: #252525
+        }
+        .nav-item:hover {
+            background-color: #6930c3;
+            cursor: pointer;
+        }
+        .nav-item {
+            padding: 1rem;
+            float: left;
+            height: 100%;
+            font-size: 1.2rem;
+            color: white;
+            margin: 0rem 0.5rem 0rem 0.5rem;
+       }
+        .nav-item-selected {
+            background-color: #6930c3
+        }
+        .content {
+            margin: 0;
+            background-color: #64dfdf;
+            border-top: 0.3rem solid #af0069;
+            height: 100%;
+            width: 100%;
+            padding: 1rem;
+            clear: left;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-item nav-item-selected">Home</div>
+        <div class="nav-item">Services</div>
+        <div class="nav-item">Pricing</div>
+        <div class="nav-item">About</div>
+    </nav>
+    <div class="content">
+        <h1>Home</h1>
+        <p>Content for Home page.</p>
+    </div>
+    <div class="content">
+        <h1>Services</h1>
+        <p>Content for Services page.</p>
+    </div>
+    <div class="content">
+        <h1>Pricing</h1>
+        <p>Content for Pricing page.</p>
+    </div>
+    <div class="content">
+        <h1>About</h1>
+        <p>Content for About page.</p>
+    </div>
+    <script>
+        let navItems = document.getElementsByClassName("nav-item");
+        let contents = document.getElementsByClassName("content");
+        navItems[0].className += " nav-item-selected";
+        for (let i = 0; i < navItems.length; i++) {
+            navItems[i].addEventListener("click", function (event) {
+                hideAllPageContents();
+                clearAllNavItemSelection();
+                event.target.className += " nav-item-selected";
+                contents[i].style.display = 'block';
+            });
+            if (i > 0) {
+                contents[i].style.display = "none";
+            }
+        }
+
+        function hideAllPageContents() {
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].style.display = 'none';
+            }
+        }
+
+        function clearAllNavItemSelection() {
+            for (let i = 0; i < navItems.length; i++) {
+                navItems[i].className = 'nav-item';
+            }
+        }
+    </script>
+</body>
+
+</html>

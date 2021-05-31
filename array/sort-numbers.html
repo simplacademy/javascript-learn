@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        var numbers = [ 5, 12, 2, 1, 23 ]
+        numbers.sort();
+        console.log(numbers);
+
+        //numbers.sort(compare);
+        numbers.sort((a, b) => a - b);
+        console.log(numbers);
+
+        function compare(a, b) {
+            return a - b;
+        }
+    </script>
+</body>
+</html>

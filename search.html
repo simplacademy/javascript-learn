@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .container {
+            margin: 0.2rem 0rem 0rem 1rem
+        }
+        .item {
+            padding: 1rem;
+            border: 0.05rem solid #ddd;
+            width: 10rem;
+            display: none;
+            cursor: pointer
+        }
+        .item:hover {
+            background-color: #ddd
+        }
+        input {
+            padding: 1rem;
+            border: 0.05rem solid #ddd;
+            margin: 0.1rem 0rem 0rem 1rem;
+            outline: 0.05rem solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <input type='text' id="search" placeholder="Search name" onkeyup="filterNames()">
+    <div class="container">
+        <div class="item">Roland Scheffer</div>
+        <div class="item">Angel League</div>
+        <div class="item">Alayna Wilds</div>
+        <div class="item">Kathi Kawamoto</div>
+        <div class="item">Gertie Walquist</div>
+        <div class="item">Ashlyn Trejo</div>
+        <div class="item">Arlene Rasor</div>
+        <div class="item">Isaac Rideaux</div>
+        <div class="item">Temeka Laurence</div>
+        <div class="item">Kory Atchinson</div>
+        <div class="item">Mireya Campione</div>
+        <div class="item">Inez Ashmore</div>
+        <div class="item">Wan Presutti</div>
+        <div class="item">Junior Roll</div>
+        <div class="item">Selena Sandin</div>
+        <div class="item">Will Mckern</div>
+        <div class="item">Jessi Culwell</div>
+        <div class="item">Sierra Mcgrory</div>
+        <div class="item">Kellye Batres</div>
+    </div>
+    <script>
+        let items = document.getElementsByClassName("item");
+        let searchName = document.getElementById("search");
+        function filterNames() {
+            for (let i = 0; i < items.length; i++) {
+                let itemText = items[i].innerText.toUpperCase();
+                let searchText = searchName.value.toUpperCase();
+                if (itemText.includes(searchText)) {
+                    items[i].style.display = "block";
+                } else {
+                    items[i].style.display = "none";
+                }
+                if (searchText == "") {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+        
+        for (let i = 0; i < items.length; i++) {
+            items[i].addEventListener("click", itemClick);
+        }
+
+        function itemClick(event) {
+            searchName.value = event.target.innerText;
+            for (let i = 0; i < items.length; i++) {
+                items[i].style.display = "none";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        // Backslash character (\)
+        // Example text - "What?", asked John.
+        // Example text - "I'm fine", said John.
+        console.log('"What?", asked John.');
+        console.log("\"I'm fine\", said John.");
+        console.log('"I\'m fine", said John.');
+
+        // Other benefits of Backslash
+        console.log('Line 1\nLine 2\nLine 3');
+        console.log('\tTab');
+        console.log('\u00A5');
+        console.log('\u{1F60E}');
+
+        // string is an object
+        console.log('Hello'.length);
+        var hello = 'Hello';
+        console.log(hello.length);
+
+        // reading specific characters in a string
+        console.log("Hello"[1]);
+        console.log("Hello".charAt(2));
+
+        // string is immutable
+        // 'immutable' meaning - unchangeable
+        hello[0] = 'h';
+        console.log(hello);
+
+        // Convert string to upper or lower case
+        console.log("Upper Case: " + hello.toUpperCase());
+        console.log("Lower Case: " + hello.toLowerCase());
+        console.log(hello);
+
+        // find string in another string
+        //           01234
+        console.log('Hello'.indexOf('el'));
+        console.log('Hello'.indexOf('z'));
+        console.log('Hello'.includes('ll'));
+        console.log('Hello'.startsWith('He'));
+        console.log('Hello'.endsWith('lo'));
+
+        // extract part of string from a string
+        //           01234
+        console.log('Hello'.substr(1));
+        console.log('Hello'.substring(1));
+        console.log('Hello'.slice(1));
+
+        // substr(start, length)
+        //                             0123456789
+        console.log("substr():    " + 'HelloWorld'.substr(2, 6));
+
+        // substring(start, end)
+        // slice(start, end)
+        // Both functions extracts string from start index till the 
+        // previous position of end index
+        //                             0123456789
+        console.log("substring(): " + 'HelloWorld'.substring(2, 6));
+        console.log("slice():     " + 'HelloWorld'.slice(2, 6));
+        console.log("substring(): " + 'HelloWorld'.substring(6, 2));
+        console.log("slice():     " + 'HelloWorld'.slice(6, 2));
+    </script>
+</body>
+</html>

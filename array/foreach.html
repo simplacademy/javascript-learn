@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let employees = [
+            { id: 1, name: "John" },
+            { id: 2, name: "Sam" },
+            { id: 3, name: "Elliott" },
+            { id: 4, name: "John" },
+        ];
+
+        for (let employee of employees) {
+            console.log(employee.name);
+        }
+
+        // forEach()
+        //   - Internally runs a for loop on the array items
+        //   - Calls the arrow function for each array item
+        //   - The arrow function is called with array item as parameter
+        console.log("=== Using forEach() ===");
+        employees.forEach(employee => console.log(employee.name));
+    </script>
+</body>
+</html>

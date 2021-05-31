@@ -2,12 +2,14 @@
 <html>
     <body>
         <script>
-            var age = 5;
+            var age = 24;
             console.log("Age: " + age);
             if (age < 2) {
                 console.log("Infant");
-            } else {
-                console.log("Not Infant");
+            } else if (age >= 2 && age <= 11) {
+                console.log("Children");
+            } else if (age > 11) {
+                console.log("Adult");
             }
         </script>
     </body>

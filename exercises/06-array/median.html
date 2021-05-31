@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        var numbers1 = [10, 25, 32, 48, 49, 52, 65, 73, 78, 87, 91];
+        var numbers2 = [10, 25, 32, 48, 49, 52, 65, 73, 78, 87, 91, 98];
+
+        console.log("Median for 1st array: " + calculateMedian(numbers1));
+        console.log("Median for 2nd array: " + calculateMedian(numbers2));
+
+        function calculateMedian(numbers) {
+            if (numbers.length % 2 == 0) {
+                var index = numbers.length / 2;
+                return (numbers[index - 1] + numbers[index]) / 2;
+            } else {
+                return numbers[(numbers.length - 1) / 2];
+            }
+        }
+    </script>
+</body>
+</html>

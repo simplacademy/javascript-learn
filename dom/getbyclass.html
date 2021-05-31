@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .heading { font-size: 2.5rem }
+        .para { color: blue }
+    </style>
+</head>
+<body>
+    <h1 class="heading para">Heading</h1>
+    <p>Para 1.</p>
+    <p class="para">Para 2.</p>
+    <p class="para">Para 3.</p>
+
+    <script>
+        let paras = document.getElementsByClassName("para");
+        
+        for (let i = 0; i < paras.length; i++) {
+            console.log(paras[i].innerText);
+        }
+    </script>
+</body>
+</html>

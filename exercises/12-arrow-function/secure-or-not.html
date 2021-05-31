@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        var link1 = "http://en.wikipedia.org";
+        var link2 = "https://en.wikipedia.org";
+
+        var displaySecureStatus = link => {
+            if (link.startsWith("http://")) {
+                console.log(link + " is Not Secure.");
+            } else if (link.startsWith("https://")) {
+                console.log(link + " is Secure.");
+            }
+        }
+        displaySecureStatus(link1);
+        displaySecureStatus(link2);
+        
+    </script>
+</body>
+</html>

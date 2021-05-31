@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        /* console.log("Loading message ....");
+        console.log("Before");
+        setTimeout(() => console.log("Hello"), 3000);
+        console.log("After"); */
+        //const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+        let promise = new Promise(function(resolve, reject) {
+            console.log("Inside Promise");
+            setTimeout(() => resolve("done"), 1000);
+        });
+        promise.then(
+            function (result) {
+                console.log(result);
+            }
+        );
+        /*function sleep(delay) {
+            return new Promise(
+                function resolveFunction(resolve) {
+                    setTimeout(resolve, delay);
+                }
+            );
+        }
+        async function greetings() {
+            console.log("Before")
+            await sleep(3000);
+            console.log("After")
+        }
+
+        greetings();*/
+    </script>
+</body>
+</html>

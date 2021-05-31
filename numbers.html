@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        // represent large numbers
+        console.log(1000000000);
+        console.log("Underscores: " + 1_000_000_000);
+        console.log("Exponential: " + 1e9); // 1 x 10 power 9
+
+        // Standard Positional Numeral System
+        // https://en.wikipedia.org/wiki/List_of_numeral_systems#Standard_positional_numeral_systems
+        console.log(0b11111111); // Prefix 0b for Binary
+        console.log(0o377); // Prefix 0o for Octal
+        console.log(0xff); // Prefix 0x for Hexadecimal
+        
+        // Decimal to Integer conversion
+        // Example Decimal Number: 45.947
+        // Round - 5.1 to 5.4 -> 5
+        // Round - 5.5 to 5.9 -> 6
+        console.log("floor(): " + Math.floor(5.9)); // 5.9 -> 5
+        console.log("ceil():  " + Math.ceil(5.1));  // 5.1 -> 6
+        console.log("round(): " + Math.round(5.4)); // 5.4 -> 5
+        console.log("round(): " + Math.round(5.5)); // 5.5 -> 6
+        console.log("round(): " + Math.round(5.8)); // 5.8 -> 6
+
+        // Find out if it is a number or not
+        // isNaN() - Is Not a Number
+        console.log("isNaN('3a'): " + isNaN('3a'));
+        console.log("isNaN('5$'): " + isNaN('5$'));
+        console.log("isNaN('15'): " + isNaN('15'));
+        console.log("isNaN('9.25'): " + isNaN('9.25'));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        var male = { code: "M", name: "Male" };
+        var female = { code: "F", name: "Female" };
+        var passengers = [{
+            firstName: "John",
+            lastName: "Smith",
+            gender: male,
+            dateOfBirth: "15-Sep-1985",
+            age: 35,
+            vegetarian: false,
+            getFullName: function () {
+                var title = this.gender.code == 'F' ? 'Mrs. ' : 'Mr. ';
+                return title + this.firstName + " " + this.lastName;
+            }
+        },
+        {
+            firstName: "Mary",
+            lastName: "Smith",
+            gender: female,
+            dateOfBirth: "27-Mar-1988",
+            age: 32,
+            vegetarian: true
+        },
+        {
+            firstName: "Joe",
+            lastName: "Smith",
+            gender: male,
+            dateOfBirth: "07-Apr-2014",
+            age: 6,
+            vegetarian: false
+        },
+        {
+            firstName: "Angela",
+            lastName: "Smith",
+            gender: female,
+            dateOfBirth: "15-Sep-1985",
+            age: 1,
+            vegetarian: false
+        }];
+        console.log(passengers);
+        console.log(passengers[0].firstName);
+        console.log(passengers[0].age);
+        console.log(passengers[0].gender.name);
+
+        /*var title = passengers[1].gender.code == 'F' ? 'Mrs. ' : 'Mr. ';
+        console.log(title + passengers[1].firstName + " " + passengers[1].lastName);*/
+
+        console.log(passengers[0].getFullName());
+        console.log(passengers[1].getFullName());
+        //console.log(getFullName(passengers[1]));
+
+        
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://restcountries.eu/rest/v2/alpha/pt");
+        xhr.send();
+        xhr.addEventListener("readystatechange", function () {
+            if (xhr.readyState == 4) {
+                xhrLang = new XMLHttpRequest();
+                xhrLang.open("GET", "https://restcountries.eu/rest/v2/lang/" + language);
+                xhrLang.send();
+                xhrLang.addEventListener("readystatechange", function () {
+                    if (xhrLang.readyState == 4) {
+                        xhrLang = new XMLHttpRequest();
+                        xhrLang.open("GET", "https://restcountries.eu/rest/v2/lang/" + language);
+                        xhrLang.send();
+                        xhrLang.addEventListener("readystatechange", function () {
+                            if (xhrLang.readyState == 4) {
+                                xhrLang = new XMLHttpRequest();
+                                xhrLang.open("GET", "https://restcountries.eu/rest/v2/lang/" + language);
+                                xhrLang.send();
+                                xhrLang.addEventListener("readystatechange", function () {
+                                    if (xhrLang.readyState == 4) {
+                                        xhrLang = new XMLHttpRequest();
+                                        xhrLang.open("GET", "https://restcountries.eu/rest/v2/lang/" + language);
+                                        xhrLang.send();
+                                        xhrLang.addEventListener("readystatechange", function () {
+                                            if (xhrLang.readyState == 4) {
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

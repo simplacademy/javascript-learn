@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        var heights = [123, 130, 145, 122];
+        heights[0] = 125;
+        heights.push(136);
+        // var average = (heights[0] + heights[1] + heights[2] + heights[3] + heights[4]) / 5;
+        // console.log(average);
+        var total = 0;
+        for (var i = 0; i < heights.length; i++) {
+            total += heights[i];
+        }
+        console.log(total / heights.length);
+    </script>
+</body>
+
+</html>
+

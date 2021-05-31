@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        var date = new Date();
+        //console.log(date);
+        console.log(date.toLocaleString());
+
+        date = new Date(0);
+        //console.log(format(date));
+
+        date = new Date(1);
+        //console.log(date);
+
+        function format(date) {
+            return date.getDate() 
+                + " " + date.toLocaleDateString('default', { month: 'short' })
+                + " " + date.getFullYear() 
+                + " " + date.getHours() 
+                + ":" + date.getMinutes() 
+                + ":" + date.getSeconds() 
+                + "." + date.getMilliseconds();
+        }
+    </script>
+</body>
+</html>

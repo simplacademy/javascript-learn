@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let names = ['Orange', 'Apple', 'Grapes'];
+
+        let nameList = '';
+        for (let name of names) {
+            nameList += name + ", ";
+        }
+        console.log(nameList);
+        console.log(nameList.substring(0, nameList.length - 2));
+
+        console.log("join(): " + names.join(', '));
+    </script>
+</body>
+</html>

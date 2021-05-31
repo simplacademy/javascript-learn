@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let a = 1;
+            a = 2;
+            if (a == 1) {
+                const b = 2;
+                console.log("Inside if (a): " + a);
+                console.log("Inside if (b): " + b);
+            }
+            
+            function scopeCheck() {
+                const c = 3;
+                console.log("Inside function (a): " + a);
+                // console.log("Inside function (b): " + b);
+                console.log("Inside function (c): " + c);
+            }
+            scopeCheck();
+            console.log("After if and function (a): " + a);
+            // console.log("After if and function (b): " + b);
+            console.log("After if and function (c): " + c);
+        </script> 
+    </body>
+</html>

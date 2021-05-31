@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        // find() - Find an object in an array of objects
+        let employees = [
+            { id: 1, name: "John" },
+            { id: 2, name: "Sam" },
+            { id: 3, name: "Elliott" },
+            { id: 4, name: "John" }
+        ];
+
+        for (let employee of employees) {
+            if (employee.name == 'John') {
+                console.log(employee);
+                break;
+            }
+        }
+
+        console.log("\n== Using find() ==")
+        let employee = employees.find(employee => employee.name == "John");
+        console.log(employee);
+
+        employee = employees.find(employee => employee.name == "Smith");
+        console.log(employee);
+    </script>
+</body>
+</html>

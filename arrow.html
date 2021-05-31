@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        let hello = (name) => "Hello " + name;
+        console.log(hello("World"));
+
+        var heights = [123, 130, 145, 122];
+        
+        var total = 0;
+        for (var i = 0; i < heights.length; i++) {
+            total += heights[i];
+        }
+        console.log(total);
+
+        // arrow function        
+        console.log(heights.reduce((sum, item) => sum + item, 0));
+
+        console.log(heights.reduce((sum, item) => sum + item, 0));
+
+        
+        
+        /*function addItems(accumulator, currentValue, index) {
+            console.log(index + " " + currentValue + " " + accumulator);
+            return 0;
+        }*/
+    </script>
+</body>
+
+</html>

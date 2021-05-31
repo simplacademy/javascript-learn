@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let xhr = new XMLHttpRequest();
+        xhr.addEventListener("readystatechange", function () {
+            if (xhr.readyState == 4) {
+                console.log(xhr.response);
+            }
+        });
+        xhr.open("GET", "https://restcountries.eu/rest/v2/name/united");
+        xhr.send();
+    </script>
+</body>
+</html>

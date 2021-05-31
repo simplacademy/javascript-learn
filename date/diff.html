@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        // Date of Birth - 21 May 2005
+        let dateOfBirth = new Date(2005, 4, 21);
+        let today = new Date();
+
+        age = today.getFullYear() - dateOfBirth.getFullYear();
+
+        if (today.getMonth() < dateOfBirth.getMonth()) {
+            age--;
+        }
+
+        if (today.getMonth() == dateOfBirth.getMonth() && 
+                today.getDate() < dateOfBirth.getDate()) {
+            age--;
+        }
+
+        console.log(age);
+
+        let start = Date.now(); // count of milliseconds from 1 Jan 1970
+        for (let i = 0; i < 10_000_000; i++) {}
+        let end = Date.now();
+        console.log("Diff: " + (end - start) + "ms");
+    </script>
+</body>
+</html>

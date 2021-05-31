@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        // find() - Finds the first matching object
+        // filter() - Finds all matching objects
+        let employees = [
+            { id: 1, name: "John" },
+            { id: 2, name: "Sam" },
+            { id: 3, name: "Elliott" },
+            { id: 4, name: "John" }
+        ];
+
+        employee = employees.filter(employee => employee.name == "John");
+        console.log(employee);
+
+        employee = employees.filter(employee => employee.name == "Smith");
+        console.log(employee);
+
+        employee = employees.filter(employee => employee.id > 2);
+        console.log(employee);
+    </script>
+</body>
+</html>

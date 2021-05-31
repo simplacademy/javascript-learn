@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+    let now = new Date();
+    console.log("new Date() - " + now);
+
+    console.log("getDate() - " + now.getDate());
+    console.log("getMonth() - " + now.getMonth() + " (Month is an index starting from zero; 0 - Jan; 11 - Dec)");
+    console.log("getYear() - " + now.getFullYear());
+    console.log("getDay() - " + now.getDay() + " (Sun to Sat - 0 to 6)");
+    console.log("getHours() - " + now.getHours());
+    console.log("getMinutes() - " + now.getMinutes());
+    console.log("getSeconds() - " + now.getSeconds());
+    console.log("getMilliseconds() - " + now.getMilliseconds());
+
+    console.log("getUTCHours() - " + now.getUTCHours());
+
+    console.log("toString() -              " + now.toString());
+    console.log("toDateString() -          " + now.toDateString());
+    console.log("toTimeString() -          " + now.toTimeString());
+    console.log("toISOString() -           " + now.toISOString());
+    console.log("toJSON() -                " + now.toJSON());
+    console.log("toLocaleString() -        " + now.toLocaleString());
+    console.log("toLocaleString('en-US') - " + now.toLocaleString('en-US'));
+    console.log("toLocaleString('en-GB') - " + now.toLocaleString('en-GB'));
+    let options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZoneName: 'short'
+    };
+    console.log("\noptions: ");
+    console.log(options);
+    console.log("toLocaleString('it-IT', options) - " + now.toLocaleString('it-IT', options));
+
+    console.log("https://402.ecma-international.org/7.0/#datetimeformat-objects");
+
+    options = { weekday: 'long' };
+    console.log(options);
+    console.log("toLocaleString('it-IT', options) - " + now.toLocaleString('it-IT', options));
+</script>
+</body>
+</html>
