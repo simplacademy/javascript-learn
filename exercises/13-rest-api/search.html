@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: sans-serif }
+        input { width: 70%; padding: 0.75rem; border: 0.1rem solid #DDD; outline: 0 }
+        .list-item { width: 35rem; border: 0.01rem solid lightgray; padding: 1rem }
+        .street { font-size: 1.5rem; color: darkgray }
+        .city { font-size: 1rem; font-weight: bold; color: #999 }
+    </style>
+</head>
+<body>
+    <h1>Search Streets in France</h1>
+    <input type="text" id="search" placeholder="Enter street name">
+    <div class="container" id="container">
+    </div>
+    <script>
+        let search = document.getElementById("search");
+
+        search.addEventListener("keyup", getStreetData);
+
+        function getStreetData() {
+            if (search.value == "") {
+                document.getElementById("container").innerHTML = "";
+                return;
+            }
+            let xhr = new XMLHttpRequest();
+            xhr.addEventListener("readystatechange", function () {
+                if (xhr.readyState == 4) {
+                    let data = JSON.parse(xhr.response);
+                    let streets = data.features;
+                    let streetsHTML = "";
+                    for (let street of streets) {
+                        streetsHTML += 
+                            `<div class="list-item">
+                                <div class="street">${street.properties.name}</div>
+                                <div class="city">${street.properties.city}</div>
+                            </div>`;
+                    }
+                    document.getElementById("container").innerHTML = streetsHTML;
+                }
+            });
+            xhr.open("GET", `https://api-adresse.data.gouv.fr/search/?q=${search.value}&type=street`);
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
