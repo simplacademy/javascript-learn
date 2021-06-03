@@ -43,27 +43,13 @@
     </div>
     <script>
         var currentPlayer = 'X';
-        const winPositions = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6]
-        ];
-
-        var winner = document.getElementById("winner");
         var boxes = document.querySelectorAll('.box');
-        var reset = document.getElementById("reset");
         var player = document.getElementById("player");
-        var container = document.getElementById("container");
+        var winner = document.getElementById("winner");
 
         boxes.forEach(box => box.addEventListener('click', playerClick));
-        reset.addEventListener("click", clear);
 
-        function playerClick() {
+        function playerClick(event) {
             if (event.target.innerText != '' || winner.innerText != '') {
                 return;
             }
@@ -75,17 +61,21 @@
                 player.innerText = 'Current Player: ' + currentPlayer;
             }
             if (isDraw()) {
-                winner.innerText = "DRAW!!";
+                winner.innerText = "Game is DRAWN!!";
             }
         }
 
+        var reset = document.getElementById("reset");
+        reset.addEventListener("click", clear);
         function clear() {
             winner.innerText = "";
             currentPlayer = 'X';
-            player.innerText = "Player " + currentPlayer;
+            player.innerText = "Current Player: " + currentPlayer;
             boxes.forEach(box => box.innerText = "");
         }
 
+        const winPositions = ['012', '345', '678', '036', '147', '258', '048', '246'];
+        var container = document.getElementById("container");
         function isWinner() {
             for (let position of winPositions) {
                 let won = true;
@@ -107,10 +97,7 @@
             }
             return draw;
         }
-        // 0 1 2
-        // 3 4 5
-        // 6 7 8
-        // 012, 345, 678, 036, 147, 258, 048, 246
+
     </script>
 </body>
 </html>
