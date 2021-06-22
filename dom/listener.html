@@ -5,7 +5,8 @@
     <input type="button" id="search" value="Search">
     <script>
         let search = document.getElementById("search");
-        search.addEventListener("click", action);
+        //search.addEventListener("click", action);
+        search.onclick = action;
         function action() {
             console.log('click');
         }
