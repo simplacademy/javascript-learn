@@ -65,16 +65,27 @@
         <p>Content for About page.</p>
     </div>
     <script>
+        // get all navigation items
         let navItems = document.getElementsByClassName("nav-item");
+        // get all page content divs
         let contents = document.getElementsByClassName("content");
+        // makes the first navigation item as selected
         navItems[0].className += " nav-item-selected";
-        for (let i = 0; i < navItems.length; i++) {
+        
+        // iterating through navigation items to define click event
+        for (let i = 0; i < navItems.length; i++) { 
+            // defining click event
             navItems[i].addEventListener("click", function (event) {
+                // based on the item clicked the respective content should be shown, before that we are clearing all page contents
                 hideAllPageContents();
+                // similar to the previous step, we are clearing all navigation item selection
                 clearAllNavItemSelection();
+                // make the item clicked by user as selected
                 event.target.className += " nav-item-selected";
+                // display the content of the selected clicked navigation item
                 contents[i].style.display = 'block';
             });
+            // this is executed once to hide all the contents except the first one
             if (i > 0) {
                 contents[i].style.display = "none";
             }
